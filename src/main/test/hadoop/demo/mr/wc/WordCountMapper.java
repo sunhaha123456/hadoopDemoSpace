@@ -1,4 +1,4 @@
-package hadoop.demo.mr;
+package hadoop.demo.mr.wc;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;

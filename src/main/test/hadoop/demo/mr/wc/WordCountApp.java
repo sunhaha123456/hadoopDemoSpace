@@ -1,4 +1,4 @@
-package hadoop.demo.mr;
+package hadoop.demo.mr.wc;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -11,7 +11,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.junit.Test;
 
 import java.net.URI;
-
 
 /**
  * 使用MR统计HDFS上的文件对应的词频
@@ -109,7 +108,7 @@ public class WordCountApp {
         System.out.println(result ? "成功" : "失败");
     }
 
-    // 功能：在本地，输入本地文件数据，并将运算结果，输出到本地
+    // 功能：在本地，输入本地文件数据，并将运算结WordCountReducer果，输出到本地
     // 注意：Mapper使用Combiner机制
     @Test
     public void runWordCountJobByLocalWithCombiner() throws Exception{
