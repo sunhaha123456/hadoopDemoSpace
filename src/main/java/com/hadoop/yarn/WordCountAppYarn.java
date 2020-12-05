@@ -8,7 +8,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.springframework.stereotype.Component;
 
 import java.net.URI;
 
@@ -17,15 +16,19 @@ import java.net.URI;
  *
  * Driver: 配置Mapper，Reducer的相关属性
  *
- * 以不提交到yarn的方式，执行Job
+ * 以提交到yarn的方式，执行Job
  */
-@Component
-public class WordCountDriver {
+public class WordCountAppYarn {
 
     public static final String HDFS_PATH = "hdfs://hadoop000:9000";
 
+    public static void main(String[] args) throws Exception {
+        boolean res = runWordCountJob();
+        System.out.println(res ? "SUCCESS" : "FAIL");
+    }
+
     // 功能：在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
-    public boolean runWordCountJob() throws Exception {
+    public static boolean runWordCountJob() throws Exception {
         // 设置Job执行用户
         System.setProperty("HADOOP_USER_NAME", "root");
 
@@ -37,7 +40,7 @@ public class WordCountDriver {
         Job job = Job.getInstance(configuration);
 
         // 设置Job对应的参数：主类
-        job.setJarByClass(WordCountDriver.class);
+        job.setJarByClass(WordCountAppYarn.class);
 
         // 设置Job对应的参数：设置自定义的Mapper和Reducer处理类
         job.setMapperClass(WordCountMapper.class);
