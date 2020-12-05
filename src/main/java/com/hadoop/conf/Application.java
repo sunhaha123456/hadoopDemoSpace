@@ -30,6 +30,11 @@ public class Application extends WebMvcConfigurationSupport {
         return "Hello World!";
     }
 
+    /**
+     * 功能：以不提交到YARN的方式，执行Job任务
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/runWordCountJob")
     String runWordCountJob() throws Exception {
         boolean res = wordCountDriver.runWordCountJob();
