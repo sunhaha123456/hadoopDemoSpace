@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
  * MapReduce自定义分区规则
  * Partitioner决定maptask输出的数据交由哪个reducetask处理，可以用于定义输出数据文件的数量
  */
-public class AccessPartitioner extends Partitioner<Text, Access>{
+public class AccessPartitioner extends Partitioner<Text, Access> {
 
     /**
      * @param phone 手机号

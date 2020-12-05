@@ -25,7 +25,7 @@ public class WordCountApp {
 
     // 功能：在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
     @Test
-    public void runWordCountJobByHdfs() throws Exception{
+    public void runWordCountJobByHdfs() throws Exception {
         // 设置Job执行用户
         System.setProperty("HADOOP_USER_NAME", "root");
 
@@ -74,7 +74,7 @@ public class WordCountApp {
 
     // 功能：在本地，输入本地文件数据，并将运算结果，输出到本地
     @Test
-    public void runWordCountJobByLocal() throws Exception{
+    public void runWordCountJobByLocal() throws Exception {
         Configuration configuration = new Configuration();
 
         // 创建一个Job
@@ -111,7 +111,7 @@ public class WordCountApp {
     // 功能：在本地，输入本地文件数据，并将运算结WordCountReducer果，输出到本地
     // 注意：Mapper使用Combiner机制
     @Test
-    public void runWordCountJobByLocalWithCombiner() throws Exception{
+    public void runWordCountJobByLocalWithCombiner() throws Exception {
         Configuration configuration = new Configuration();
 
         // 创建一个Job

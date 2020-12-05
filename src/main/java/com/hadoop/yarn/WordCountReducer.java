@@ -1,4 +1,4 @@
-package hadoop.demo.mr.wc;
+package com.hadoop.yarn;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -7,7 +7,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class WordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>{
 
     /**
      *（hello，1）（hello，1）（world，1）

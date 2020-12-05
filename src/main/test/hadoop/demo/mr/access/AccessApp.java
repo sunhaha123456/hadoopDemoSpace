@@ -14,7 +14,7 @@ public class AccessApp {
 
     // 功能：以本地方式，无指定Part，即使用默认Part的方式，执行任务
     @Test
-    public void runAccessJobByLocalWithoutPart() throws Exception{
+    public void runAccessJobByLocalWithoutPart() throws Exception {
         Configuration configuration = new Configuration();
 
         Job job = Job.getInstance(configuration);
@@ -43,7 +43,7 @@ public class AccessApp {
 
     // 功能：以本地方式，使用指定Part，执行任务
     @Test
-    public void runAccessJobByLocalWithPart() throws Exception{
+    public void runAccessJobByLocalWithPart() throws Exception {
         Configuration configuration = new Configuration();
 
         Job job = Job.getInstance(configuration);

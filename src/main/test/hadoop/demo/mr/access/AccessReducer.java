@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 自定义Reducer处理类
  */
-public class AccessReducer extends Reducer<Text, Access, NullWritable, Access>{
+public class AccessReducer extends Reducer<Text, Access, NullWritable, Access> {
 
 
     /**

@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 自定义Mapper处理类
  */
-public class AccessMapper extends Mapper<LongWritable, Text, Text, Access>{
+public class AccessMapper extends Mapper<LongWritable, Text, Text, Access> {
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
