@@ -1,4 +1,4 @@
-package com.hadoop.yarn;
+package com.hadoop.wc;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
