@@ -29,7 +29,6 @@ public class WordCountAppYarn {
 
     /**
      * 功能：在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
-     * @param nameNodeURI name node uri
      * @param inputPath  输入目录
      * @param outputPath 输出目录
      */

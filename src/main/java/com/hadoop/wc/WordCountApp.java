@@ -24,10 +24,10 @@ public class WordCountApp {
 
     private static final Logger logger = LoggerFactory.getLogger(WordCountApp.class);
 
-    public static void main(String[] args) {
-        WordCountApp wc = new WordCountApp();
-        wc.runWordCountJob("hdfs://hadoop000:9000", "/wordCount/input", "/wordCount/output");
-    }
+//    public static void main(String[] args) {
+//        WordCountApp wc = new WordCountApp();
+//        wc.runWordCountJob("hdfs://hadoop000:9000", "/wordCount/input", "/wordCount/output");
+//    }
 
     /**
      * 功能：在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
