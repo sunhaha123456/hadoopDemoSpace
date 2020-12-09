@@ -17,19 +17,25 @@ import java.net.URI;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MapJoinApp {
+/**
+ * 功能：实现Map端Join
+ * 备注：只能用于本地，不能提交到YARN，因为读取input文件，是使用的本地流的方式
+ */
+public class MapJoinByLocalApp {
 
     public static void main(String[] args)throws Exception {
         Configuration configuration = new Configuration();
 
         Job job = Job.getInstance(configuration);
-        job.setJarByClass(MapJoinApp.class);
+        job.setJarByClass(MapJoinByLocalApp.class);
         job.setMapperClass(MyMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(NullWritable.class);
         job.setNumReduceTasks(0);  //设置没有reduce
 
-        job.addCacheFile(new URI("input/join/dept/dept.txt")); //把小文件加到分布式缓存，注意：此处只能传文件路径，不能传目录路径
+        //把小文件加到分布式缓存
+        //注意：此处最好是传文件路径，而不是传目录路径，如果传目录路径，需要特殊处理
+        job.addCacheFile(new URI("input/join/dept/dept.txt"));
         FileInputFormat.setInputPaths(job, new Path("input/join/emp"));
 
         Path outputDir = new Path("output/join/map");

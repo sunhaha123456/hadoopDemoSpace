@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 功能：实现Reduce端join
+ * 功能：实现Reduce端Join
  */
 public class ReduceJoinApp {
 
