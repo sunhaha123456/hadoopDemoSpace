@@ -15,8 +15,9 @@ import java.net.URI;
 
 /**
  * 功能：使用MR统计HDFS上的文件对应的词频
- *      以提交到yarn的方式，执行Job
- * 备注：start.sh 中，是Linux 上的启动脚本
+ * 备注：（1）该方式，是以提交到yarn的方式，执行Job
+ *      （2）start.sh，是Linux 上的启动脚本，执行该脚本，直接提交到YARN上执行Job
+ *      （3）注意修改输入、输出路径，本地时，路径不带 /，Linux执行时，需要加 /
  */
 public class WordCountAppYarn {
 
@@ -66,6 +67,7 @@ public class WordCountAppYarn {
             // 如果输出目录已经存在，则先删除
             // 注意：（1）指定用户，需要查看hdfs中文件的用户权限
             //      （2）如果任务执行失败，也会删除该目录的
+            //      （3）这种指定方式，比较不好，可以参考 ReduceJoinApp 中的方式
             FileSystem fileSystem = FileSystem.get(new URI(nameNodeURI), configuration, "root");
             if(fileSystem.exists(outPutPath)) {
                 fileSystem.delete(outPutPath,true);

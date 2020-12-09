@@ -11,7 +11,13 @@ import org.junit.Test;
 
 public class AccessApp {
 
-    // 功能：以本地方式，无指定Part，即使用默认Part的方式，执行任务
+    /**
+     * 功能：以本地方式，输入本地文件数据，并将运算结果，输出到本地
+     * 备注：（1）该方式，在本地执行，则不走hdfs，也不走yarn
+     *      （2）该方式，如果打jar包，发到Linux服务器上，以yarn方式执行jar，就可以直接提交Job到YARN
+     *      （3）未指定Part，即使用默认Part的方式，执行任务
+     * @throws Exception
+     */
     @Test
     public void runAccessJobByLocalWithoutPart() throws Exception {
         Configuration configuration = new Configuration();
@@ -40,7 +46,13 @@ public class AccessApp {
         System.out.println(result ? "成功" : "失败");
     }
 
-    // 功能：以本地方式，使用指定Part，执行任务
+    /**
+     * 功能：以本地方式，输入本地文件数据，并将运算结果，输出到本地
+     * 备注：（1）该方式，在本地执行，则不走hdfs，也不走yarn
+     *      （2）该方式，如果打jar包，发到Linux服务器上，以yarn方式执行jar，就可以直接提交Job到YARN
+     *      （3）使用指定Part，执行任务
+     * @throws Exception
+     */
     @Test
     public void runAccessJobByLocalWithPart() throws Exception {
         Configuration configuration = new Configuration();

@@ -15,10 +15,16 @@ import java.io.IOException;
 
 /**
  * 功能：统计页面访问总次数
+ * 备注：等同于 select count(1) from xxx
  */
 public class PVStatApp {
 
-    // Driver端的代码：八股文
+    /**
+     * 功能：以本地方式，输入本地文件数据，并将运算结果，输出到本地
+     * 备注：（1）该方式，在本地执行，则不走hdfs，也不走yarn
+     *      （2）该方式，如果打jar包，发到Linux服务器上，以yarn方式执行jar，就可以直接提交Job到YARN
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         Configuration configuration = new Configuration();
 

@@ -8,9 +8,9 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 /**
- * 自定义复杂数据类型
- * 1) 按照Hadoop的规范，需要实现Writable接口
- * 2）按照Hadoop的规范，需要实现write和readFields这两个方法
+ * 功能：自定义复杂数据类型
+ * 备注：需要（1）按照Hadoop的规范，需要实现Writable接口
+ *         （2）按照Hadoop的规范，需要实现write和readFields这两个方法
  */
 @Data
 public class Access implements Writable {

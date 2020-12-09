@@ -14,11 +14,10 @@ import org.slf4j.LoggerFactory;
 import java.net.URI;
 
 /**
- * 使用MR统计HDFS上的文件对应的词频
  *
- * Driver: 配置Mapper，Reducer的相关属性
- *
- * 以不提交到yarn的方式，执行Job
+ * 功能：使用MR统计HDFS上的文件对应的词频
+ * 备注：（1）该方式，是以不提交到yarn的方式，执行Job
+ *      （2）同时，该方式可以在springboot程序，controller里直接调用
  */
 public class WordCountApp {
 

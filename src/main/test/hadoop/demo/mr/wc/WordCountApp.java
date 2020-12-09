@@ -13,17 +13,17 @@ import org.junit.Test;
 import java.net.URI;
 
 /**
- * 使用MR统计HDFS上的文件对应的词频
- *
- * Driver: 配置Mapper，Reducer的相关属性
- *
- * 提交到本地运行：开发过程中使用
+ * 功能：使用MR统计HDFS上的文件对应的词频
  */
 public class WordCountApp {
 
     public static final String HDFS_PATH = "hdfs://aly:9000";
 
-    // 功能：在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
+    /**
+     * 功能：以本地方式，在hdfs上，输入hdfs文件数据，并将运算结果，输出到hdfs
+     * 备注：该方式不走yarn
+     * @throws Exception
+     */
     @Test
     public void runWordCountJobByHdfs() throws Exception {
         // 设置Job执行用户
@@ -72,7 +72,12 @@ public class WordCountApp {
         System.out.println(result ? "成功" : "失败");
     }
 
-    // 功能：在本地，输入本地文件数据，并将运算结果，输出到本地
+    /**
+     * 功能：以本地方式，输入本地文件数据，并将运算结果，输出到本地
+     * 备注：（1）该方式，在本地执行，则不走hdfs，也不走yarn
+     *      （2）该方式，如果打jar包，发到Linux服务器上，以yarn方式执行jar，就可以直接提交Job到YARN
+     * @throws Exception
+     */
     @Test
     public void runWordCountJobByLocal() throws Exception {
         Configuration configuration = new Configuration();
@@ -108,8 +113,13 @@ public class WordCountApp {
         System.out.println(result ? "成功" : "失败");
     }
 
-    // 功能：在本地，输入本地文件数据，并将运算结WordCountReducer果，输出到本地
-    // 注意：Mapper使用Combiner机制
+    /**
+     * 功能：以本地方式，输入本地文件数据，并将运算结果，输出到本地
+     * 备注：（1）该方式，在本地执行，则不走hdfs，也不走yarn
+     *      （2）该方式，如果打jar包，发到Linux服务器上，以yarn方式执行jar，就可以直接提交Job到YARN
+     *      （3）Mapper使用Combiner机制
+     * @throws Exception
+     */
     @Test
     public void runWordCountJobByLocalWithCombiner() throws Exception {
         Configuration configuration = new Configuration();
