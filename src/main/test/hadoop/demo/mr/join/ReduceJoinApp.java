@@ -19,6 +19,9 @@ import java.util.List;
 
 /**
  * 功能：实现Reduce端Join
+ * 备注：数据通过Mapper加载过来后，然后通过Shuffle阶段，在Reduce端完成真正的Join操作
+ *      优点：适合大多数场景
+ *      缺点：效率没有Mapper端join高
  */
 public class ReduceJoinApp {
 
@@ -92,6 +95,9 @@ public class ReduceJoinApp {
         }
     }
 
+    /**
+     * 功能：Reduer端进行join
+     */
     static class MyReducer extends Reducer<IntWritable, DataInfo, Text, NullWritable> {
 
         @Override
