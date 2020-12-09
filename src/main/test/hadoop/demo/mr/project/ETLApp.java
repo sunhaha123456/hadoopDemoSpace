@@ -42,6 +42,7 @@ public class ETLApp {
 
         job.setMapOutputKeyClass(NullWritable.class);
         job.setMapOutputValueClass(Text.class);
+        job.setNumReduceTasks(0);  //设置没有reduce
 
         FileInputFormat.setInputPaths(job, new Path("input/wc/wc.txt"));
         FileOutputFormat.setOutputPath(job, new Path("input/wc/etl"));
